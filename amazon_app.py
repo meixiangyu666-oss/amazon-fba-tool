@@ -198,11 +198,6 @@ if plan_file and fba_template_file:
             st.info("💡 请修改《发货计划表》确保箱号连续，然后重新上传。")
             st.stop()  # <--- 关键：强制停止，下方下载按钮不会显示
 
-        # 情况 B: 有货但没填尺寸
-        if missing_dims:
-            st.error(f"❌ **尺寸缺失：箱号 {missing_dims} 缺少底部的重量尺寸信息！**")
-            # st.stop()  # <--- 关键：强制停止
-
         if not missing_skus and not missing_dims and max_b > 0:
             st.success(f"✨ 交叉校验通过：1 到 {max_b} 箱配置正确。")
     # =====================================================================
