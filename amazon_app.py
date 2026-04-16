@@ -234,7 +234,7 @@ if plan_file and fba_template_file:
             # st.stop() # 如果想强制拦截不允许下载，可以取消这一行的注释
             
         if missing_dims:
-            st.error(f"⚠️ **数据缺失：箱号 {missing_dims} 缺少底部的重量尺寸信息！**")
+            st.warning(f"⚠️ **数据缺失：箱号 {missing_dims} 缺少底部的重量尺寸信息！**")
 
         if not missing_skus and not missing_dims and max_b > 0:
             st.success(f"✨ 校验通过：1 到 {max_b} 箱的 SKU 分配与尺寸信息完整对应。")
