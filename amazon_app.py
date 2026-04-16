@@ -201,7 +201,7 @@ if plan_file and fba_template_file:
         # 情况 B: 有货但没填尺寸
         if missing_dims:
             st.error(f"❌ **尺寸缺失：箱号 {missing_dims} 缺少底部的重量尺寸信息！**")
-            st.stop()  # <--- 关键：强制停止
+            # st.stop()  # <--- 关键：强制停止
 
         if not missing_skus and not missing_dims and max_b > 0:
             st.success(f"✨ 交叉校验通过：1 到 {max_b} 箱配置正确。")
