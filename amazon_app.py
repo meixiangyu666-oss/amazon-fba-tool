@@ -234,7 +234,7 @@ if plan_file and fba_template_file:
             # st.stop() # 如果想强制拦截不允许下载，可以取消这一行的注释
             
         if missing_dims:
-            st.warning(f"⚠️ **数据缺失：箱号 {missing_dims} 缺少底部的重量尺寸信息！**")
+            st.warning(f"⚠️ **数据缺失：箱号 {missing_dims} 缺少底部的重量尺寸信息！（海运发货请忽略此提示，快递发货请核对缺少的信息）**")
 
         if not missing_skus and not missing_dims and max_b > 0:
             st.success(f"✨ 校验通过：1 到 {max_b} 箱的 SKU 分配与尺寸信息完整对应。")
@@ -531,4 +531,4 @@ if st.session_state.plan_data is not None:
                         safe_write(cus_ws, r, c_idx, round(val, 2))
 
             st.success(f"✅ 装箱信息表处理完成！已自动过滤空箱，实际填充 {actual_filled_boxes} 箱的重量和尺寸")
-            st.download_button("📥 下载填好的装箱信息表", save_wb(cus_wb), "Packing_List_Filled.xlsx")
+            st.download_button("📥 下载填好的装箱信息表", save_wb(cus_wb), cus_template_file.name)
